@@ -1,7 +1,6 @@
 GameObject[] objetos;
 ArrayList<Integer> resultados;
 boolean juegoFinalizado;
-
 void setup() {
   size(600, 400);
   objetos = new GameObject[2];
@@ -10,22 +9,17 @@ void setup() {
   resultados = new ArrayList<Integer>();
   juegoFinalizado = false;
 }
-
 void draw() {
-  objetos[0].display(); // Mostrar tablero
-
+  objetos[0].display();
   if (!juegoFinalizado) {
-    objetos[1].display(); // Mostrar dado
+    objetos[1].display();
   } else {
-    // Dibujar resultados al finalizar
     mostrarResultados();
   }
 }
-
 void mousePressed() {
   if (!juegoFinalizado) {
     if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
-      // Lanzar el dado al presionar el mouse
       ((Dado)objetos[1]).lanzar();
       resultados.add(((Dado)objetos[1]).valor);
     }
@@ -37,9 +31,7 @@ void keyPressed() {
     juegoFinalizado = true;
   }
 }
-
 void mostrarResultados() {
-  // Dibujar los resultados por consola
   int columna = 0;
   int fila = 0;
   for (int i = 0; i < resultados.size(); i++) {
