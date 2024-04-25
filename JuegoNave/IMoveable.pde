@@ -1,3 +1,3 @@
 interface IMoveable {
-  void move();
+  void mover();
 }
