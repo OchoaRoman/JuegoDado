@@ -1,3 +1,0 @@
-interface IDisplayable {
-  void display();
-}
