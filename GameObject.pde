@@ -1,7 +1,7 @@
 abstract class GameObject {
-  PVector position;
+  protected PVector position;
 
-  GameObject(float x, float y) {
+  public GameObject(float x, float y) {
     position = new PVector(x, y);
   }
 
