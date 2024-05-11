@@ -1,17 +1,17 @@
 class Dado extends GameObject {
-  int valor;
-  String textoValor;
-  PVector textoPosicion;
-
-  Dado(float x, float y) {
+  private int valor;
+  private String textoValor;
+  private PVector textoPosicion;
+  
+  public Dado(float x, float y) {
     super(x, y);
     valor = 1; 
     textoValor = "Uno"; 
     textoPosicion = new PVector(width - 20, 20);
   }
 
-  void display() {
-    fill(255, 0, 0); // Rojo
+  public void display() {
+    fill(255, 0, 0);
     rectMode(CENTER);
     rect(position.x, position.y, 100, 100);
     textAlign(RIGHT, TOP);
@@ -20,7 +20,8 @@ class Dado extends GameObject {
     text(textoValor, textoPosicion.x, textoPosicion.y);
     mostrarPuntos();
   }
-  void mostrarPuntos() {
+  
+  private void mostrarPuntos() {
     float radio = 8;
     float offset = 25;
     float centroX = position.x;
@@ -36,7 +37,7 @@ class Dado extends GameObject {
         break;
       case 3:
         ellipse(centroX - offset, centroY - offset, radio * 2, radio * 2);
-        ellipse(centroX, centroY, radio * 2, radio * 2); // Punto central
+        ellipse(centroX, centroY, radio * 2, radio * 2);
         ellipse(centroX + offset, centroY + offset, radio * 2, radio * 2);
         break;
       case 4:
@@ -48,7 +49,7 @@ class Dado extends GameObject {
       case 5:
         ellipse(centroX - offset, centroY - offset, radio * 2, radio * 2);
         ellipse(centroX + offset, centroY - offset, radio * 2, radio * 2);
-        ellipse(centroX, centroY, radio * 2, radio * 2); // Punto central
+        ellipse(centroX, centroY, radio * 2, radio * 2);
         ellipse(centroX - offset, centroY + offset, radio * 2, radio * 2);
         ellipse(centroX + offset, centroY + offset, radio * 2, radio * 2);
         break;
@@ -63,7 +64,7 @@ class Dado extends GameObject {
     }
   }
 
-  void lanzar() {
+  public void lanzar() {
     valor = int(random(1, 7));
     switch (valor) {
       case 1:
@@ -85,5 +86,9 @@ class Dado extends GameObject {
         textoValor = "Seis";
         break;
     }
+  }
+  
+  public int getValor() {
+    return valor;
   }
 }
