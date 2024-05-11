@@ -1,9 +1,9 @@
 class GameObject implements IDisplayable {
-  PVector position;
-  PImage img;
-  PApplet applet;
+  protected PVector position;
+  protected PImage img;
+  protected PApplet applet;
 
-  GameObject(PApplet applet, float x, float y, PImage img) {
+  public GameObject(PApplet applet, float x, float y, PImage img) {
     this.applet = applet;
     position = new PVector(x, y);
     this.img = img;
