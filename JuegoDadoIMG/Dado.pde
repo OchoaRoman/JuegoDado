@@ -1,10 +1,10 @@
 class Dado extends GameObject {
-  int valor;
-  PImage[] imagenes;
-  String textoValor;
-  PVector textoPosicion;
+  private int valor;
+  private PImage[] imagenes;
+  private String textoValor;
+  private PVector textoPosicion;
 
-  Dado(float x, float y) {
+  public Dado(float x, float y) {
     super(x, y);
     valor = 1;
     textoValor = "Uno"; // Inicializamos textoValor con un valor por defecto
@@ -15,7 +15,7 @@ class Dado extends GameObject {
     }
   }
 
-  void display() {
+  public void display() {
     imageMode(CENTER);
     image(imagenes[valor - 1], position.x, position.y, 100, 100);
     
@@ -25,7 +25,7 @@ class Dado extends GameObject {
     text(textoValor, textoPosicion.x, textoPosicion.y);
   }
 
-  void lanzar() {
+  public void lanzar() {
     valor = int(random(1, 7));
     switch (valor) {
       case 1:
