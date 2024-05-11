@@ -27,7 +27,7 @@ public void mousePressed() {
 }
 
 public void keyPressed() {
-  if (key == ' ') { // Presionar espacio para finalizar el juego
+  if (key == ' ') {
     juegoFinalizado = true;
   }
 }
