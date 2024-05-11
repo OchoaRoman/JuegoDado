@@ -1,24 +1,23 @@
 class Enemigo implements IDisplayable, IMoveable {
-  private float x, y;
-  private float velocidad;
-  private PImage img;
+    private PVector position;
+    private PVector velocidad;
+    private PImage img;
 
-  public Enemigo(float x, float y, float velocidad, PImage img) {
-    this.x = x;
-    this.y = y;
-    this.velocidad = velocidad;
-    this.img = img;
-  }
-
-  public void display() {
-    image(img, x, y);
-  }
-
-  public void mover() {
-    y += velocidad;
-    if (y > height) {
-      y = -50;
-      x = random(width);
+    public Enemigo(PVector position, float velocidadY, PImage img) {
+        this.position = position;
+        this.velocidad = new PVector(0, velocidadY);
+        this.img = img;
     }
-  }
+
+    public void display() {
+        image(img, position.x, position.y);
+    }
+
+    public void mover() {
+        position.add(velocidad);
+        if (position.y > height) {
+            position.y = -50;
+            position.x = random(width);
+        }
+    }
 }
