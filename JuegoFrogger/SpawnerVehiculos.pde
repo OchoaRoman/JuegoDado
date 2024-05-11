@@ -1,18 +1,19 @@
 class SpawnerVehicles extends GameObject {
-  ArrayList<Vehicle> vehicles; 
-  float spawnRate;
-  SpawnerVehicles(float rate) {
-    super(0, 0, 0, 0); 
+  private ArrayList<Vehicle> vehicles; 
+  private float spawnRate;
+  public SpawnerVehicles(float rate) {
+    super(0, 0, 0, 0);
     vehicles = new ArrayList<Vehicle>();
     spawnRate = rate;
   }
-  void spawnVehicle() {
+  
+  public void spawnVehicle() {
     float yPos = random(height - 30);
     float speed = random(1, 3);
     Vehicle vehicle = new Vehicle(-50, yPos, 50, 30, speed);
     vehicles.add(vehicle);
-  }
-  void update() {
+  } 
+  public void update() {
     for (int i = vehicles.size() - 1; i >= 0; i--) {
       Vehicle v = vehicles.get(i);
       v.move();
@@ -25,6 +26,6 @@ class SpawnerVehicles extends GameObject {
       spawnVehicle();
     }
   }
-  void display() {
+  public void display() {
   }
 }
